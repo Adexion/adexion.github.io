@@ -1,178 +1,53 @@
 <!DOCTYPE html>
-<html lang="pl" class="scroll-smooth">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mateusz Poźniak | Senior PHP & Symfony Developer | Tech Lead B2B</title>
   <meta name="description" content="Profesjonalne usługi programistyczne B2B: Backend PHP/Symfony, refaktoryzacja legacy code, architektura asynchroniczna i optymalizacja baz danych.">
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
-  </style>
-</head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-600 selection:text-white">
+    /* Zabezpieczenie przed rozjechaniem - czysty CSS */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+    }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-  <!-- TŁO Z GRADIENTEM -->
-  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-indigo-600/15 blur-[130px] rounded-full"></div>
-    <div class="absolute top-[65%] -left-[10%] w-[550px] h-[350px] bg-cyan-600/10 blur-[130px] rounded-full"></div>
-  </div>
+    /* Sztywne wymiary awatara - nigdy nie ucieknie na cały ekran */
+    .avatar-wrapper {
+      width: 180px;
+      height: 180px;
+      max-width: 180px;
+      max-height: 180px;
+      border-radius: 1rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      border: 3px solid rgba(99, 102, 241, 0.4);
+      box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2);
+      background-color: #0f172a;
+    }
+    .avatar-img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: cover !important;
+      display: block;
+    }
 
-  <!-- NAWIGACJA -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipOPOq6NtioFXE74GmSfkYjcnTPzTywuSg6Nj3b6" 
-             alt="Logo Mateusz Poźniak" 
-             onerror="this.src='https://lh3.googleusercontent.com/a/ACg8ocL8MXwXHxuHY4EM3hyuGK-deBmc0ZgsUgyps7MDpNxk4kpoBXrXhFKXvEvUcJbOAZKHu0BlVKBFSPVZlHYUT-KAojGjRjU'"
-             class="w-10 h-10 rounded-xl object-cover ring-2 ring-indigo-500/30 group-hover:ring-indigo-400 transition-all shadow-lg">
-        <div>
-          <span class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
-            Mateusz Poźniak
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Dostępny do projektów"></span>
-          </span>
-          <span class="text-xs text-slate-400 block font-mono">Tech Lead & Symfony Architect</span>
-        </div>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#specjalizacje" class="hover:text-white transition-colors">Specjalizacje</a>
-        <a href="#projekty" class="hover:text-white transition-colors">Projekty</a>
-        <a href="#opinie" class="hover:text-white transition-colors text-amber-400 font-mono">Opinie 5.0 ★</a>
-        <a href="https://www.linkedin.com/in/mateusz-pozniak" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-medium text-emerald-400 transition-all">
-          <span>WhatsApp: 793 329 574</span>
-        </a>
-        <a href="#kontakt" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs sm:text-sm shadow-lg shadow-indigo-600/30 transition-all">
-          Kontakt B2B
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO SECTION Z MIEJSCEM NA ZDJĘCIE -->
-  <section class="pt-16 pb-16 md:pt-24 md:pb-20 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14 text-center md:text-left">
-      
-      <!-- ZDJĘCIE / AVATAR -->
-      <div class="relative shrink-0">
-        <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden ring-4 ring-indigo-500/30 shadow-2xl shadow-indigo-600/20 bg-slate-900">
-          <img src="avatar.jpg" 
-               alt="Mateusz Poźniak" 
-               onerror="this.src='https://lh3.googleusercontent.com/p/AF1QipOPOq6NtioFXE74GmSfkYjcnTPzTywuSg6Nj3b6'"
-               class="w-full h-full object-cover">
-        </div>
-        <div class="absolute -bottom-3 -right-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-emerald-400 flex items-center gap-1.5 shadow-lg">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Senior / Tech Lead
-        </div>
-      </div>
-
-      <!-- TREŚĆ GŁÓWNA -->
-      <div class="flex-1">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-4">
-          <span>● Dostępny do zleceń B2B & Konsultacji</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-          Skaluję systemy i eliminuję <br class="hidden sm:block" />
-          <span class="text-indigo-400">dług technologiczny w PHP & Symfony</span>
-        </h1>
-
-        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-6">
-          Jako freelancer i Tech Lead dostarczam profesjonalne usługi programistyczne dla biznesu. Skupiam się na czystej architekturze, refaktoryzacji legacy code, komunikacji asynchronicznej oraz trudnych migracjach technologicznych.
-        </p>
-
-        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
-          <a href="#kontakt" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition-all">
-            Skonsultuj projekt
-          </a>
-          <a href="https://maps.google.com/maps?cid=12432085038564033776" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium text-sm transition-all flex items-center gap-2">
-            <span class="text-amber-400 font-mono">5.0 ★</span> Profil Google Maps
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- TECH STACK -->
-    <div class="max-w-4xl mx-auto mt-14 pt-8 border-t border-slate-800/80 text-center">
-      <p class="text-xs uppercase tracking-widest text-slate-400 font-mono mb-4">Główny Stack Technologiczny</p>
-      <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono">
-        <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">PHP 8+</span>
-        <span class="px-3 py-1.5 rounded-md bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 font-semibold">Symfony Framework</span>
-        <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Doctrine DBAL / ORM</span>
-        <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Symfony Messenger</span>
-        <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">PostgreSQL / MySQL</span>
-        <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Docker</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- USŁUGI / SPECJALIZACJE -->
-  <section id="specjalizacje" class="py-16 bg-slate-900/40 border-y border-slate-800/60 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-xs uppercase font-mono tracking-wider text-indigo-400 mb-2">Zakres usług B2B</h2>
-        <h3 class="text-3xl font-bold text-white tracking-tight">W czym mogę wesprzeć Twój projekt</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition-all">
-          <div class="text-indigo-400 font-mono font-bold text-2xl mb-4">&lt;/&gt;</div>
-          <h4 class="text-lg font-bold text-white mb-3">Backend & Architektura Symfony</h4>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">
-            Projektowanie i implementacja skalowalnych systemów webowych, modularnych backendów oraz wydajnych API (REST / GraphQL).
-          </p>
-          <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
-            <li>✔ Symfony 6/7</li>
-            <li>✔ API Platform & Autoryzacja</li>
-            <li>✔ Clean Code & Architektura modularna</li>
-          </ul>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition-all">
-          <div class="text-amber-400 font-mono font-bold text-2xl mb-4">⚡</div>
-          <h4 class="text-lg font-bold text-white mb-3">Refaktoryzacja & Migracje Legacy</h4>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">
-            Bezpieczne aktualizacje starszych wersji aplikacji, wydzielanie modułów oraz redukcja długu technologicznego bez przestojów produkcyjnych.
-          </p>
-          <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
-            <li>✔ Migracje wersji Symfony</li>
-            <li>✔ Porządkowanie Spaghetti Code</li>
-            <li>✔ Zwiększanie stabilności systemów</li>
-          </ul>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition-all">
-          <div class="text-emerald-400 font-mono font-bold text-2xl mb-4">⛁</div>
-          <h4 class="text-lg font-bold text-white mb-3">Kolejki, Bazy Danych & Docker</h4>
-          <p class="text-sm text-slate-400 leading-relaxed mb-4">
-            Asynchroniczne przetwarzanie procesów biznesowych przez Symfony Messenger. Optymalizacja powolnych zapytań SQL oraz pełna konteneryzacja.
-          </p>
-          <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
-            <li>✔ MySQL / PostgreSQL / Doctrine DBAL</li>
-            <li>✔ Symfony Messenger & Kolejki</li>
-            <li>✔ Docker & Docker Compose</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJEKTY -->
-  <section id="projekty" class="py-16 px-4 sm:px-6">
-    <div class="max
+    /* Logo w nawigacji */
+    .nav-logo {
+      width: 40px;
+      height: 40px;
+      max
