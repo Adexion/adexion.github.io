@@ -4,87 +4,496 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mateusz Poźniak | Senior PHP & Symfony Developer | Tech Lead B2B</title>
-  <meta name="description" content="Usługi programistyczne B2B: Backend PHP/Symfony, refaktoryzacja legacy code, architektura asynchroniczna i optymalizacja baz danych.">
+  <meta name="description" content="Usługi programistyczne B2B: Backend PHP/Symfony, refaktoryzacja legacy code, architektura asynchroniczna i bazy danych.">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
-    /* Reset i fundamenty */
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    html {
-      scroll-behavior: smooth;
-    }
     body {
-      background-color: #030712;
-      color: #f3f4f6;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0b0f19;
+      color: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
     }
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* Kontener globalny */
+    /* Układ */
     .container {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Efekt tła */
-    .bg-glow {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(3, 7, 18, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
+      padding: 0 20px;
     }
 
     /* Nawigacja */
     header {
+      background: #111827;
+      border-bottom: 1px solid #1f2937;
+      padding: 16px 0;
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(3, 7, 18, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #1f2937;
+      z-index: 50;
     }
-    .nav-inner {
-      height: 76px;
+    .nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: inherit;
-    }
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      object-fit: cover;
-      border: 1px solid #374151;
-    }
-    .brand-name {
+    .brand-title {
+      font-size: 1.1rem;
       font-weight: 700;
-      font-size: 1.05rem;
-      color: #fff;
+      color: #ffffff;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 8px;
+    }
+    .dot-status {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .brand-sub {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      font-family: monospace;
+      display: block;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .nav-menu a:hover {
+      color: #60a5fa;
+    }
+
+    /* Przyciski */
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .btn-blue {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+    .btn-dark {
+      background-color: #1f2937;
+      border: 1px solid #374151;
+      color: #f3f4f6;
+    }
+    .btn-green {
+      background-color: #059669;
+      color: #ffffff;
+    }
+    .btn-linkedin {
+      background-color: #0a66c2;
+      color: #ffffff;
+    }
+
+    /* Sekcja Główna (Hero) */
+    .hero {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .hero-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .hero-box {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+    .avatar-wrapper {
+      width: 160px;
+      height: 160px;
+      min-width: 160px;
+      min-height: 160px;
+      border-radius: 16px;
+      overflow: hidden;
+      background-color: #1f2937;
+      border: 2px solid #3b82f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: #1e293b;
+      color: #93c5fd;
+      border: 1px solid #334155;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 12px;
+    }
+    .hero-h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .hero-p {
+      font-size: 1.05rem;
+      color: #9ca3af;
+      margin-bottom: 24px;
+      max-width: 650px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    @media (min-width: 768px) {
+      .hero-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    /* Pasek technologii */
+    .stack-bar {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #1f2937;
+      text-align: center;
+    }
+    .stack-title {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      font-family: monospace;
+      margin-bottom: 12px;
+    }
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .pill {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: monospace;
+    }
+    .pill-highlight {
+      border-color: #3b82f6;
+      color: #bfdbfe;
+    }
+
+    /* Sekcje standardowe */
+    section {
+      padding: 60px 0;
+    }
+    .sec-alt {
+      background-color: #0f172a;
+      border-bottom: 1px solid #1f2937;
+    }
+    .sec-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .sec-h2 {
+      font-size: 1.7rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .sec-desc {
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    /* Siatki */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .card h3 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .card-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #60a5fa;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Opinie */
+    .stars {
+      color: #f59e0b;
+      margin-bottom: 8px;
+    }
+    .quote {
+      font-style: italic;
+      color: #d1d5db;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .author {
+      font-size: 0.8rem;
+      color: #6b7280;
+      font-family: monospace;
+    }
+
+    /* Kontakt & Stopka */
+    #kontakt {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 28px 0 48px;
+    }
+    footer {
+      border-top: 1px solid #1f2937;
+      padding-top: 24px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    @media (min-width: 600px) {
+      footer {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAWIGACJA -->
+  <header>
+    <div class="container nav-bar">
+      <div>
+        <a href="#" class="brand-title">
+          Mateusz Poźniak
+          <span class="dot-status" title="Dostępny"></span>
+        </a>
+        <span class="brand-sub">Tech Lead & Symfony Architect</span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#specjalizacje">Specjalizacje</a>
+        <a href="#projekty">Realizacje</a>
+        <a href="#opinie" style="color: #f59e0b;">5.0 ★ Google</a>
+        <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="btn btn-green" style="padding: 6px 12px; font-size: 0.8rem;">
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          
+          <div class="avatar-wrapper">
+            <!-- Gdy brak avatar.jpg, skrypt natychmiast chowa pusty tag img i pokazuje monogram MP -->
+            <img src="avatar.jpg" alt="Mateusz Poźniak" onerror="this.style.display='none';">
+            <span>MP</span>
+          </div>
+
+          <div>
+            <span class="hero-tag">● Dostępny do projektów B2B & Konsultacji</span>
+            <h1 class="hero-h1">
+              Skaluję systemy i eliminuję<br>
+              dług technologiczny w PHP & Symfony
+            </h1>
+            <p class="hero-p">
+              Jako freelancer i Tech Lead wspieram firmy w czystej architekturze, refaktoryzacji trudnego legacy code, komunikacji asynchronicznej oraz bezpiecznych migracjach systemów.
+            </p>
+            <div class="hero-actions">
+              <a href="#kontakt" class="btn btn-blue">Skonsultuj projekt</a>
+              <a href="https://maps.google.com/maps?cid=12432085038564033776" target="_blank" rel="noopener" class="btn btn-dark">
+                <span style="color: #f59e0b;">5.0 ★</span> Profil w Google Maps
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="stack-bar">
+          <p class="stack-title">Główny Stack Technologiczny</p>
+          <div class="pills">
+            <span class="pill">PHP 8+</span>
+            <span class="pill pill-highlight">Symfony Framework</span>
+            <span class="pill">Doctrine DBAL / ORM</span>
+            <span class="pill">Symfony Messenger</span>
+            <span class="pill">PostgreSQL / MySQL</span>
+            <span class="pill">Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECJALIZACJE -->
+    <section id="specjalizacje" class="sec-alt">
+      <div class="container">
+        <div class="sec-header">
+          <h2 class="sec-h2">Zakres Usług B2B</h2>
+          <p class="sec-desc">Konkretne obszary techniczne, w których wspieram zespoły deweloperskie</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>&lt;Backend /&gt; Architektura</h3>
+            <p>Projektowanie skalowalnych backendów w Symfony, implementacja czystej architektury, API Platform oraz bezpiecznych interfejsów REST.</p>
+          </div>
+          <div class="card">
+            <h3>⚡ Refaktoryzacja Legacy</h3>
+            <p>Audyty kodu, wydzielanie modułów ze spaghetti code oraz bezpieczne migracje starszych wersji PHP i Symfony do najnowszych wydań.</p>
+          </div>
+          <div class="card">
+            <h3>⛁ Kolejki, SQL & Docker</h3>
+            <p>Asynchroniczne przetwarzanie procesów za pomocą Symfony Messenger, optymalizacja powolnych zapytań SQL i konteneryzacja środowisk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALIZACJE -->
+    <section id="projekty">
+      <div class="container">
+        <div class="sec-header">
+          <h2 class="sec-h2">Wybrane Wdrożenia</h2>
+          <p class="sec-desc">Projekty produkcyjne potwierdzające praktyczne doświadczenie inżynierskie</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <span class="pill pill-highlight" style="display:inline-block; margin-bottom:12px;">Produkcja Live</span>
+            <h3>Taverna Planszowa</h3>
+            <p>Autorski, kompleksowy portal dedykowany pasjonatom gier planszowych. Wyposażony w relacyjną bazę danych, wyszukiwarkę i moduły społecznościowe.</p>
+            <a href="https://tavernaplanszowa.pl/" target="_blank" rel="noopener" class="card-link">Odwiedź tavernaplanszowa.pl ↗</a>
+          </div>
+
+          <div class="card">
+            <span class="pill" style="display:inline-block; margin-bottom:12px; color:#38bdf8;">Cloud Platform</span>
+            <h3>Adexion Platform</h3>
+            <p>Aplikacja webowa zoptymalizowana pod kątem maksymalnej wydajności i bezobsługowego skalowania w architekturze chmurowej.</p>
+            <a href="https://adexion.netlify.app/" target="_blank" rel="noopener" class="card-link">Zobacz aplikację ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPINIE -->
+    <section id="opinie" class="sec-alt">
+      <div class="container">
+        <div class="sec-header">
+          <h2 class="sec-h2">Opinie z Google Maps</h2>
+          <p class="sec-desc">Średnia ocen 5.0 ★ na profilu firmowym</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">„Świetny programista, usługi na wysokim poziomie.”</p>
+            <p class="author">— stachopl (Zweryfikowana recenzja)</p>
+          </div>
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">„Wysokie kompetencje techniczne, solidne wsparcie przy rozwoju oprogramowania i bezproblemowa komunikacja.”</p>
+            <p class="author">— Aleksander Król (Zweryfikowana recenzja)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt">
+      <div class="container">
+        <h2 class="sec-h2">Porozmawiajmy o współpracy</h2>
+        <p class="sec-desc">
+          Szukasz wsparcia przy refaktoryzacji, nowym module w Symfony czy optymalizacji backendu?
+        </p>
+
+        <div class="contact-buttons">
+          <a href="https://www.linkedin.com/in/mateusz-pozniak" target="_blank" rel="noopener" class="btn btn-linkedin">
+            Profil LinkedIn
+          </a>
+          <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="btn btn-green">
+            WhatsApp (+48 793 329 574)
+          </a>
+          <a href="https://github.com/adexion" target="_blank" rel="noopener" class="btn btn-dark">
+            GitHub (@adexion)
+          </a>
+        </div>
+
+        <footer>
+          <span>© 2026 Mateusz Poźniak - Usługi programistyczne | NIP: 6482807915 | Zabrze, Polska</span>
+          <span>adexion.github.io</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
