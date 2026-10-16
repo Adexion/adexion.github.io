@@ -1,81 +1,43 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mateusz Poźniak | Senior PHP & Symfony Developer | Tech Lead B2B</title>
   <meta name="description" content="Profesjonalne usługi programistyczne B2B: Backend PHP/Symfony, refaktoryzacja legacy code, architektura asynchroniczna i optymalizacja baz danych.">
   
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    /* Zabezpieczenie przed rozjechaniem - czysty CSS */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: #020617;
-      color: #f8fafc;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.5;
-    }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
-
-    /* Sztywne wymiary awatara - nigdy nie ucieknie na cały ekran */
-    .avatar-wrapper {
-      width: 180px;
-      height: 180px;
-      max-width: 180px;
-      max-height: 180px;
-      border-radius: 1rem;
-      overflow: hidden;
-      flex-shrink: 0;
-      position: relative;
-      border: 3px solid rgba(99, 102, 241, 0.4);
-      box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2);
-      background-color: #0f172a;
-    }
-    .avatar-img {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: 100% !important;
-      max-height: 100% !important;
-      object-fit: cover !important;
-      display: block;
-    }
-
-    /* Logo w nawigacji */
-    .nav-logo {
-      width: 40px;
-      height: 40px;
-      max-width: 40px;
-      max-height: 40px;
-      border-radius: 0.75rem;
-      object-fit: cover;
-    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
   </style>
 </head>
-<body class="selection:bg-indigo-600 selection:text-white">
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-600 selection:text-white">
 
-  <!-- TŁO -->
+  <!-- TŁO Z GRADIENTEM -->
   <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-600/15 blur-[120px] rounded-full"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-indigo-600/15 blur-[130px] rounded-full"></div>
+    <div class="absolute top-[65%] -left-[10%] w-[550px] h-[350px] bg-cyan-600/10 blur-[130px] rounded-full"></div>
   </div>
 
   <!-- NAWIGACJA -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
+      <a href="#" class="flex items-center gap-3 group">
         <img src="https://lh3.googleusercontent.com/p/AF1QipOPOq6NtioFXE74GmSfkYjcnTPzTywuSg6Nj3b6" 
-             alt="Logo" 
-             onerror="this.src='avatar.jpg'"
-             class="nav-logo border border-indigo-500/30">
+             alt="Logo Mateusz Poźniak" 
+             onerror="this.src='https://lh3.googleusercontent.com/a/ACg8ocL8MXwXHxuHY4EM3hyuGK-deBmc0ZgsUgyps7MDpNxk4kpoBXrXhFKXvEvUcJbOAZKHu0BlVKBFSPVZlHYUT-KAojGjRjU'"
+             class="w-10 h-10 rounded-xl object-cover ring-2 ring-indigo-500/30 group-hover:ring-indigo-400 transition-all shadow-lg">
         <div>
           <span class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
             Mateusz Poźniak
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Dostępny do projektów"></span>
           </span>
           <span class="text-xs text-slate-400 block font-mono">Tech Lead & Symfony Architect</span>
         </div>
@@ -88,43 +50,55 @@
         <a href="https://www.linkedin.com/in/mateusz-pozniak" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
       </nav>
 
-      <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-medium text-emerald-400 transition-all">
-        WhatsApp: 793 329 574
-      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-medium text-emerald-400 transition-all">
+          <span>WhatsApp: 793 329 574</span>
+        </a>
+        <a href="#kontakt" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs sm:text-sm shadow-lg shadow-indigo-600/30 transition-all">
+          Kontakt B2B
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="pt-12 pb-16 md:pt-20 md:pb-20 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 text-center md:text-left">
+  <!-- HERO SECTION Z MIEJSCEM NA ZDJĘCIE -->
+  <section class="pt-16 pb-16 md:pt-24 md:pb-20 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14 text-center md:text-left">
       
-      <!-- KONTENER NA ZDJĘCIE (ODPORNY NA ROZJECHANIE) -->
-      <div class="avatar-wrapper">
-        <img src="avatar.jpg" 
-             alt="Mateusz Poźniak" 
-             onerror="this.src='https://lh3.googleusercontent.com/p/AF1QipOPOq6NtioFXE74GmSfkYjcnTPzTywuSg6Nj3b6'"
-             class="avatar-img">
+      <!-- ZDJĘCIE / AVATAR -->
+      <div class="relative shrink-0">
+        <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden ring-4 ring-indigo-500/30 shadow-2xl shadow-indigo-600/20 bg-slate-900">
+          <img src="avatar.jpg" 
+               alt="Mateusz Poźniak" 
+               onerror="this.src='https://lh3.googleusercontent.com/p/AF1QipOPOq6NtioFXE74GmSfkYjcnTPzTywuSg6Nj3b6'"
+               class="w-full h-full object-cover">
+        </div>
+        <div class="absolute -bottom-3 -right-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-emerald-400 flex items-center gap-1.5 shadow-lg">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Senior / Tech Lead
+        </div>
       </div>
 
       <!-- TREŚĆ GŁÓWNA -->
       <div class="flex-1">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-4">
-          <span>● Dostępny do projektów B2B & Konsultacji</span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-4">
+          <span>● Dostępny do zleceń B2B & Konsultacji</span>
         </div>
         
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-          Rozwój architektury i refaktoryzacja <span class="text-indigo-400">systemów PHP & Symfony</span>
+          Skaluję systemy i eliminuję <br class="hidden sm:block" />
+          <span class="text-indigo-400">dług technologiczny w PHP & Symfony</span>
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-6">
-          Jako freelancer i Tech Lead wspieram firmy w redukcji długu technologicznego (Legacy Code), optymalizacji zapytań SQL, komunikacji asynchronicznej oraz bezpiecznych migracjach wersji.
+          Jako freelancer i Tech Lead dostarczam profesjonalne usługi programistyczne dla biznesu. Skupiam się na czystej architekturze, refaktoryzacji legacy code, komunikacji asynchronicznej oraz trudnych migracjach technologicznych.
         </p>
 
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
-          <a href="https://www.linkedin.com/in/mateusz-pozniak" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition-all">
-            Profil LinkedIn
+          <a href="#kontakt" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition-all">
+            Skonsultuj projekt
           </a>
-          <a href="https://maps.google.com/maps?cid=12432085038564033776" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium text-sm transition-all flex items-center gap-2">
+          <a href="https://maps.google.com/maps?cid=12432085038564033776" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium text-sm transition-all flex items-center gap-2">
             <span class="text-amber-400 font-mono">5.0 ★</span> Profil Google Maps
           </a>
         </div>
@@ -135,7 +109,7 @@
     <!-- TECH STACK -->
     <div class="max-w-4xl mx-auto mt-14 pt-8 border-t border-slate-800/80 text-center">
       <p class="text-xs uppercase tracking-widest text-slate-400 font-mono mb-4">Główny Stack Technologiczny</p>
-      <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs font-mono">
+      <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono">
         <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">PHP 8+</span>
         <span class="px-3 py-1.5 rounded-md bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 font-semibold">Symfony Framework</span>
         <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Doctrine DBAL / ORM</span>
@@ -146,92 +120,158 @@
     </div>
   </section>
 
-  <!-- SPECJALIZACJE -->
+  <!-- USŁUGI / SPECJALIZACJE -->
   <section id="specjalizacje" class="py-16 bg-slate-900/40 border-y border-slate-800/60 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="text-center max-w-2xl mx-auto mb-14">
         <h2 class="text-xs uppercase font-mono tracking-wider text-indigo-400 mb-2">Zakres usług B2B</h2>
         <h3 class="text-3xl font-bold text-white tracking-tight">W czym mogę wesprzeć Twój projekt</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-          <div class="text-indigo-400 font-mono font-bold text-xl mb-3">&lt;Backend /&gt;</div>
-          <h4 class="text-lg font-bold text-white mb-2">Backend & Architektura Symfony</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">Projektowanie modularnych systemów, czysta architektura, API REST/GraphQL oraz optymalizacja wydajnościowa.</p>
+        
+        <div class="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition-all">
+          <div class="text-indigo-400 font-mono font-bold text-2xl mb-4">&lt;/&gt;</div>
+          <h4 class="text-lg font-bold text-white mb-3">Backend & Architektura Symfony</h4>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">
+            Projektowanie i implementacja skalowalnych systemów webowych, modularnych backendów oraz wydajnych API (REST / GraphQL).
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+            <li>✔ Symfony 6/7</li>
+            <li>✔ API Platform & Autoryzacja</li>
+            <li>✔ Clean Code & Architektura modularna</li>
+          </ul>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-          <div class="text-amber-400 font-mono font-bold text-xl mb-3">⚡ Refaktoryzacja</div>
-          <h4 class="text-lg font-bold text-white mb-2">Redukcja Długu & Migracje</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">Bezpieczne aktualizacje wersji Symfony/PHP bez przestojów produkcyjnych i wydzielanie modułów ze spaghetti code.</p>
+        <div class="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition-all">
+          <div class="text-amber-400 font-mono font-bold text-2xl mb-4">⚡</div>
+          <h4 class="text-lg font-bold text-white mb-3">Refaktoryzacja & Migracje Legacy</h4>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">
+            Bezpieczne aktualizacje starszych wersji aplikacji, wydzielanie modułów oraz redukcja długu technologicznego bez przestojów produkcyjnych.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+            <li>✔ Migracje wersji Symfony</li>
+            <li>✔ Porządkowanie Spaghetti Code</li>
+            <li>✔ Zwiększanie stabilności systemów</li>
+          </ul>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-          <div class="text-emerald-400 font-mono font-bold text-xl mb-3">⛁ Bazy & DevOps</div>
-          <h4 class="text-lg font-bold text-white mb-2">Kolejki, SQL & Docker</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">Asynchroniczność w Symfony Messenger, optymalizacja zapytań bazodanowych oraz konteneryzacja środowisk.</p>
+        <div class="p-8 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition-all">
+          <div class="text-emerald-400 font-mono font-bold text-2xl mb-4">⛁</div>
+          <h4 class="text-lg font-bold text-white mb-3">Kolejki, Bazy Danych & Docker</h4>
+          <p class="text-sm text-slate-400 leading-relaxed mb-4">
+            Asynchroniczne przetwarzanie procesów biznesowych przez Symfony Messenger. Optymalizacja powolnych zapytań SQL oraz pełna konteneryzacja.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+            <li>✔ MySQL / PostgreSQL / Doctrine DBAL</li>
+            <li>✔ Symfony Messenger & Kolejki</li>
+            <li>✔ Docker & Docker Compose</li>
+          </ul>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- PROJEKTY -->
   <section id="projekty" class="py-16 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-xs uppercase font-mono tracking-wider text-indigo-400 text-center mb-10">Realizacje & Projekty</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-xs uppercase font-mono tracking-wider text-indigo-400 mb-2">Realizacje</h2>
+          <h3 class="text-3xl font-bold text-white tracking-tight">Wybrane wdrożenia</h3>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-8 flex flex-col justify-between">
           <div>
-            <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-mono text-xs">Produkcja Live</span>
-            <h4 class="text-xl font-bold text-white mt-3 mb-2">Taverna Planszowa</h4>
-            <p class="text-sm text-slate-300 mb-4">Autorski portal dedykowany pasjonatom gier planszowych z relacyjną bazą danych i modułami społecznościowymi.</p>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 font-mono text-xs">Produkcja Live</span>
+              <span class="text-xs text-slate-400 font-mono">Web Platform</span>
+            </div>
+            <h4 class="text-2xl font-bold text-white mb-3">Taverna Planszowa</h4>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Autorski, kompleksowy portal dedykowany pasjonatom gier planszowych z zaawansowaną bazą danych, wyszukiwarką i modułami społecznościowymi.
+            </p>
           </div>
-          <a href="https://tavernaplanszowa.pl/" target="_blank" rel="noopener" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300">Odwiedź tavernaplanszowa.pl ↗</a>
+          <a href="https://tavernaplanszowa.pl/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors">
+            Odwiedź serwis tavernaplanszowa.pl ↗
+          </a>
         </div>
 
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between">
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-8 flex flex-col justify-between">
           <div>
-            <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-xs">Aplikacja Web</span>
-            <h4 class="text-xl font-bold text-white mt-3 mb-2">Adexion Platform</h4>
-            <p class="text-sm text-slate-300 mb-4">Nowoczesna platforma webowa zoptymalizowana pod kątem wydajności i bezobsługowego skalowania w chmurze.</p>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 font-mono text-xs">Aplikacja Web</span>
+              <span class="text-xs text-slate-400 font-mono">Cloud Deploy</span>
+            </div>
+            <h4 class="text-2xl font-bold text-white mb-3">Adexion Platform</h4>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Nowoczesna aplikacja webowa wdrożona w architekturze chmurowej, zoptymalizowana pod kątem maksymalnej wydajności i skalowalności.
+            </p>
           </div>
-          <a href="https://adexion.netlify.app/" target="_blank" rel="noopener" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300">Zobacz aplikację ↗</a>
+          <a href="https://adexion.netlify.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors">
+            Zobacz aplikację ↗
+          </a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- OPINIE -->
-  <section id="opinie" class="py-16 bg-slate-900/30 border-y border-slate-800/60 px-4 sm:px-6 text-center">
-    <div class="max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 font-mono text-xs mb-6">
-        ★★★★★ 5.0 w Google Maps
+  <!-- OPINIE GOOGLE -->
+  <section id="opinie" class="py-16 bg-slate-900/30 border-y border-slate-800/60 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 font-mono text-xs mb-6">
+        ★★★★★ 5.0 w Google Business Profile
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left mb-6">
-        <div class="p-5 rounded-xl bg-slate-900 border border-slate-800">
-          <div class="text-amber-400 text-sm mb-2">★★★★★</div>
-          <p class="text-sm text-slate-300 italic mb-2">„Świetny programista, usługi na wysokim poziomie.”</p>
+      <h3 class="text-3xl font-bold text-white tracking-tight mb-10">Zaufanie i oceny klientów</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left mb-8">
+        <div class="p-6 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-amber-400 mb-3 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic mb-4">„Świetny programista, usługi na wysokim poziomie.”</p>
           <div class="text-xs font-mono text-slate-400">— stachopl (Google Review)</div>
         </div>
-        <div class="p-5 rounded-xl bg-slate-900 border border-slate-800">
-          <div class="text-amber-400 text-sm mb-2">★★★★★</div>
-          <p class="text-sm text-slate-300 italic mb-2">„Wysokie kompetencje techniczne, solidne wsparcie przy rozwoju oprogramowania i bezproblemowa komunikacja.”</p>
+        <div class="p-6 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-amber-400 mb-3 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic mb-4">„Wysokie kompetencje techniczne, solidne wsparcie przy rozwoju oprogramowania i bezproblemowa komunikacja.”</p>
           <div class="text-xs font-mono text-slate-400">— Aleksander Król (Google Review)</div>
         </div>
       </div>
+
+      <a href="https://maps.google.com/maps?cid=12432085038564033776" target="_blank" rel="noopener" class="text-xs font-mono text-slate-400 hover:text-white transition-colors underline underline-offset-4">
+        Zobacz oficjalną wizytówkę w Google Maps →
+      </a>
     </div>
   </section>
 
-  <!-- STOPKA -->
-  <footer id="kontakt" class="py-12 border-t border-slate-800 text-center px-4">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <a href="https://www.linkedin.com/in/mateusz-pozniak" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl bg-[#0A66C2] text-white text-xs font-semibold">LinkedIn</a>
-        <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl bg-[#25D366] text-slate-950 text-xs font-semibold">WhatsApp (+48 793 329 574)</a>
-        <a href="https://github.com/adexion" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs font-mono">GitHub</a>
+  <!-- KONTAKT / STOPKA -->
+  <footer id="kontakt" class="pt-16 pb-14 px-4 sm:px-6 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Porozmawiajmy o współpracy</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-sm sm:text-base mb-8">
+        Szukasz wsparcia przy refaktoryzacji, nowym module w Symfony czy optymalizacji backendu? Skontaktuj się bezpośrednio.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+        <a href="https://www.linkedin.com/in/mateusz-pozniak" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-[#0A66C2] hover:bg-[#084e96] text-white font-medium text-sm transition-all shadow-lg">
+          LinkedIn
+        </a>
+        <a href="https://wa.me/48793329574" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#1fa851] text-slate-950 font-semibold text-sm transition-all shadow-lg">
+          WhatsApp (+48 793 329 574)
+        </a>
+        <a href="https://github.com/adexion" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-medium text-sm transition-all">
+          GitHub: @adexion
+        </a>
       </div>
-      <p class="text-xs text-slate-400 font-mono">© 2026 Mateusz Poźniak - Usługi programistyczne | NIP: 6482807915 | Zabrze, Polska</p>
+
+      <div class="text-xs text-slate-400 font-mono pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span>© 2026 Mateusz Poźniak - Usługi programistyczne. NIP: 6482807915. Zabrze, Polska.</span>
+        <span>adexion.github.io</span>
+      </div>
     </div>
   </footer>
 
